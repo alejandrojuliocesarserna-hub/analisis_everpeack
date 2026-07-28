@@ -4,6 +4,7 @@
 ![Pandas](https://img.shields.io/badge/Library-Pandas-150458?style=flat&logo=pandas)
 ![Seaborn](https://img.shields.io/badge/Library-Seaborn-388E3C?style=flat)
 ![Status](https://img.shields.io/badge/Estado-Completado-brightgreen)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TU_USUARIO/TU_REPOSITORIO/blob/main/TU_CUADERNO.ipynb)
 
 ## 🎯 Descripción del Proyecto
 Este repositorio contiene un análisis práctico de datos enfocado en el comportamiento de ventas de una empresa multicanal con presencia en Latinoamérica (**Web, App, Tienda Física y WhatsApp**). 
