@@ -53,3 +53,63 @@ El objetivo principal es transformar datos crudos en **KPIs financieros** e **in
 ├── notebooks/
 │   └── proyecto_guiado_sprint7.ipynb
 └── README.md
+
+# 📊 Análisis Exploratorio de Datos (EDA) y Segmentación de Clientes - ConnectaTel
+
+##  Objetivo del Proyecto
+El objetivo principal de este proyecto es realizar un Análisis Exploratorio de Datos (EDA) sobre la base de usuarios y el consumo de servicios de **ConnectaTel**. A través de este análisis se busca entender el comportamiento de uso (llamadas y mensajes), identificar anomalías o datos sesgados, segmentar a los clientes según su nivel de consumo y edad, y generar **insights estratégicos** que impulsen decisiones comerciales como campañas de *upselling* y diseño de nuevos planes.
+
+---
+
+##  Datasets Utilizados
+El análisis combina dos fuentes de datos principales:
+
+1. **`users_latam.csv`**: Contiene la información demográfica y contractual de los clientes:
+   * `user_id`: Identificador único del usuario.
+   * `first_name`, `last_name`: Nombre y apellido.
+   * `age`: Edad del usuario.
+   * `city`: Ciudad de residencia.
+   * `reg_date`: Fecha de registro en la compañía.
+   * `plan`: Tipo de plan contratado (`Basico` o `Premium`).
+   * `churn_date`: Fecha de cancelación del servicio (si aplica).
+
+2. **`usage.csv`**: Registra la actividad y consumo histórico de los usuarios:
+   * `user_id`: Identificador del usuario.
+   * `type`: Tipo de servicio (`call` o `text`).
+   * `duration`: Duración de las llamadas en minutos.
+   * `length`: Longitud de los mensajes de texto en caracteres.
+
+---
+
+##  Etapas del Análisis
+El proyecto se desarrolló en las siguientes etapas consecutivas:
+
+1. **Limpieza y Preparación de Datos:**
+   * Tratamiento de valores *sentinels* (ej. `-999` en edad reemplazado por la mediana).
+   * Identificación y manejo de datos faltantes (`pd.NA` en ciudades y nulos estructurales en consumos).
+   * Corrección de formatos de fecha y filtrado de registros fuera de rango.
+2. **Agregación por Usuario (`Summary Statistics`):**
+   * Creación de métricas consolidadas: `cant_mensajes`, `cant_llamadas` y `cant_minutos_llamada`.
+   * Unificación de tablas (`users` + `usage_agg`) mediante un *LEFT JOIN*.
+3. **Análisis Estadístico y Distribuciones:**
+   * Cálculo de medidas de tendencia central y dispersión.
+   * Visualización mediante histogramas comparativos por tipo de plan (`hue='plan'`).
+4. **Identificación de Outliers:**
+   * Detección visual con *Boxplots*.
+   * Cálculo de límites mediante el método del **Rango Intercuartílico (IQR)** y evaluación de su impacto en el negocio.
+5. **Segmentación de Clientes:**
+   * Clasificación por nivel de uso: `Bajo uso`, `Uso medio` y `Alto uso`.
+   * Clasificación demográfica por edad: `Joven`, `Adulto` y `Adulto Mayor`.
+6. **Conclusiones e Insights Ejecutivos:**
+   * Traducción de hallazgos estadísticos en recomendaciones accionables para los *stakeholders*.
+
+---
+
+## 🛠️ Cómo Ejecutar el Notebook
+
+# Opción 1: Google Colab (Recomendado)
+1. Haz clic en el botón de la parte superior del notebook **"Open in Colab"** o sube el archivo `.ipynb` directamente a [Google Colab](https://colab.research.google.com/).
+2. Asegúrate de cargar los archivos de datos `users_latam.csv` y `usage.csv` en el panel lateral de archivos de Colab (`/content/`).
+3. Ejecuta las celdas en orden secuencial (`Entorno de ejecución > Ejecutar todas`).
+
+---
